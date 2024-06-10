@@ -1,74 +1,163 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Casa do Pastel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      rel="icon"
+      href="https://i.imgur.com/dBaLJbE.png"
+    />
+    <link rel="stylesheet" href="css.css" />
+    <meta name="viewport" content="width=device-width, initial-scales=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <style>
+         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
+            background-color: #f8f9fa;
+            color: #333;
             padding: 20px;
-            background-color: #2e2e2e;
         }
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            background-color: #fff8dc;
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
             text-align: center;
-            color: #ff6347;
+            color: #e3bc21;
+            margin-bottom: 20px;
+            font-size: 2em;
         }
+
         h2 {
-            text-align: center;
-            color: #ffa07a;
-            border-bottom: 2px solid #ffa07a;
+            color:e3bc21;
+            border-bottom: 2px solid e3bc21;
             padding-bottom: 5px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
         }
+
         .item {
             margin-bottom: 15px;
         }
+
         .item label {
             display: block;
             margin-bottom: 5px;
+            font-weight: bold;
         }
-        .item input {
+
+        .item input[type="number"],
+        .item input[type="text"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #ced4da;
             border-radius: 5px;
             box-sizing: border-box;
             margin-bottom: 10px;
+            font-size: 1em;
         }
+
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #ff6347;
+            padding: 15px;
+            background-color: e3bc21;
             border: none;
             border-radius: 5px;
             color: #fff;
-            font-size: 16px;
+            font-size: 1.2em;
             cursor: pointer;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
         }
+
         button:hover {
-            background-color: #e55337;
+            background-color: e3bc21;
         }
+
         .total {
             margin-top: 20px;
             font-size: 1.5em;
             text-align: center;
-            color: #ff6347;
+            color: e3bc215;
+            font-weight: bold;
         }
+
+        .pedido {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .pedido .info {
+            flex-grow: 1;
+        }
+
+        .pedido button {
+            background-color: #28a745;
+            color: #fff;
+            margin-left: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .pedido button:hover {
+            background-color: #218838;
+        }
+
+        input:focus,
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+        }
+
+        .item input[type="number"]::-webkit-outer-spin-button,
+        .item input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .item input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 100px;
+        }
+ 
     </style>
 </head>
 <body>
     <div class="container">
         <h1>CASA DO PASTEL</h1>
+        
+        <div class="item">
+            <label for="nomeCliente">Nome do Cliente:</label>
+            <input type="text" id="nomeCliente">
+        </div>
         
         <h2>Pastéis</h2>
         <div class="item">
@@ -176,11 +265,37 @@
             <input type="number" id="bebidaSuco" value="0" min="0">
         </div>
 
-        <button onclick="calcularTotal()">Calcular Total</button>
-        <div class="total" id="total">Total: R$ 0,00</div>
+        <button onclick="adicionarPedido()">Adicionar Pedido</button>
+        <div class="total" id="total"></div>
+        <div id="listaPedidos"></div>
     </div>
 
     <script>
+        const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+    
+        async function enviarPedidoParaPlanilha(pedido) {
+            try {
+                const url = 'https://api.sheetmonkey.io/form/w2H2FdtF1NbBLgredotSkn';
+    
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(pedido)
+                });
+    
+                if (response.ok) {
+                    console.log('Pedido enviado com sucesso para a planilha!');
+                } else {
+                    throw new Error('Erro ao enviar pedido para a planilha.');
+                }
+            } catch (error) {
+                console.error('Erro:', error.message);
+                alert('Ocorreu um erro ao enviar o pedido para a planilha.');
+            }
+        }
+    
         function calcularTotal() {
             const precos = {
                 pastelCarne: 8.00,
@@ -207,17 +322,121 @@
                 bebidaCocaCola: 14.00,
                 bebidaLatinha: 5.00,
                 bebidaCerveja: 5.00,
-                bebidaSuco: 4.00
+                bebidaSuco: 4.00,
             };
-
+    
             let total = 0;
-            for (const [key, value] of Object.entries(precos)) {
-                const quantidade = document.getElementById(key).value;
-                total += quantidade * value;
+    
+            for (let item in precos) {
+                const quantidade = parseFloat(document.getElementById(item).value) || 0;
+                total += quantidade * precos[item];
             }
-
+    
             document.getElementById('total').innerText = 'Total: R$ ' + total.toFixed(2);
+            return total;
+        }
+    
+        function formatarItens(tipo, itens) {
+            return Object.entries(itens)
+                .filter(([chave, valor]) => valor > 0) // Filtrar apenas os itens com quantidade maior que zero
+                .map(([chave, valor]) => `${chave}: ${valor}`)
+                .join(', ');
+        }
+    
+        function adicionarPedido() {
+            const nomeCliente = document.getElementById('nomeCliente').value.trim();
+            const total = calcularTotal();
+    
+            if (nomeCliente && total > 0) {
+                const pasteis = {
+                    carne: document.getElementById('pastelCarne').value,
+                    queijoPresunto: document.getElementById('pastelQueijoPresunto').value,
+                    pizza: document.getElementById('pastelPizza').value,
+                    frangoCatupiry: document.getElementById('pastelFrangoCatupiry').value,
+                    queijo: document.getElementById('pastelQueijo').value,
+                    carneQueijo: document.getElementById('pastelCarneQueijo').value,
+                    frangoQueijo: document.getElementById('pastelFrangoQueijo').value,
+                    calabresaQueijo: document.getElementById('pastelCalabresaQueijo').value,
+                    queijoBacon: document.getElementById('pastelQueijoBacon').value,
+                    costela: document.getElementById('pastelCostela').value,
+                    hamburguer: document.getElementById('pastelHamburguer').value,
+                    chocolateNinho: document.getElementById('pastelChocolateNinho').value,
+                    doceLeiteBanana: document.getElementById('pastelDoceLeiteBanana').value,
+                };
+    
+                const adicionais = {
+                    bombom: document.getElementById('adicionalBombom').value,
+                    cocoRalado: document.getElementById('adicionalCocoRalado').value,
+                    pacoca: document.getElementById('adicionalPacoca').value,
+                    queijo: document.getElementById('adicionalQueijo').value,
+                    catupiry: document.getElementById('adicionalCatupiry').value,
+                    calabresa: document.getElementById('adicionalCalabresa').value,
+                    bacon: document.getElementById('adicionalBacon').value,
+                };
+    
+                const bebidas = {
+                    guarana: document.getElementById('bebidaGuarana').value,
+                    cocaCola: document.getElementById('bebidaCocaCola').value,
+                    latinha: document.getElementById('bebidaLatinha').value,
+                    cerveja: document.getElementById('bebidaCerveja').value,
+                    suco: document.getElementById('bebidaSuco').value,
+                };
+    
+                const pedido = {
+                    nome: nomeCliente,
+                    horario: new Date().toLocaleString(),
+                    pastel: formatarItens('pastel', pasteis),
+                    adicionais: formatarItens('adicional', adicionais),
+                    bebidas: formatarItens('bebida', bebidas),
+                    total: total.toFixed(2)
+                };
+    
+                pedidos.push(pedido);
+                localStorage.setItem('pedidos', JSON.stringify(pedidos));
+                enviarPedidoParaPlanilha(pedido);
+                atualizarListaPedidos();
+                limparCampos();
+            } else {
+                alert('Por favor, insira o nome do cliente e adicione itens ao pedido.');
+            }
+        }
+    
+        function atualizarListaPedidos() {
+            const listaPedidos = document.getElementById('listaPedidos');
+            listaPedidos.innerHTML = '';
+    
+            pedidos.forEach((pedido, index) => {
+                const div = document.createElement('div');
+                div.className = 'pedido';
+                div.innerHTML = `
+                    <div class="info">
+                        <strong>${pedido.nome}</strong> - ${pedido.horario} <br>
+                        Total: R$ ${pedido.total}
+                    </div>
+                    <button onclick="concluirPedido(${index})">Concluir</button>
+                `;
+                listaPedidos.appendChild(div);
+            });
+        }
+    
+        function concluirPedido(index) {
+            pedidos.splice(index, 1);
+            localStorage.setItem('pedidos', JSON.stringify(pedidos));
+            atualizarListaPedidos();
+        }
+    
+        function limparCampos() {
+            document.getElementById('nomeCliente').value = '';
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => input.value = 0);
+            calcularTotal();
+        }
+    
+        window.onload = function() {
+            atualizarListaPedidos();
+            calcularTotal();
         }
     </script>
 </body>
 </html>
+    
