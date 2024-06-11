@@ -603,11 +603,9 @@
             <input type="number" id="pastelPizza" value="0" min="0" />
         </div>
         <div class="item">
-            <label for="pastelFrangoCatupiry">Frango com Catupiry (R$        </div>
-              <div class="item">
-                  <label for="pastelQueijo">Pastel de Queijo (R$ 10,00):</label>
-                  <input type="number" id="pastelQueijo" value="0" min="0" />
-              </div>
+            <label for="pastelFrangoCatupiry">Frango com Catupiry (R$ 8,00):</label>
+            <input type="number" id="pastelFrangoCatupiry" value="0" min="0" />
+        </div>
               <div class="item">
                   <label for="pastelCarneQueijo">Carne e Queijo (R$ 12,00):</label>
                   <input type="number" id="pastelCarneQueijo" value="0" min="0" />
@@ -762,51 +760,55 @@
                       alert('Ocorreu um erro ao enviar o pedido para a planilha.');
                   }
               }
-      
               function calcularTotal() {
-                  const precos = {
-                      pastelCarne: 8.00,
-                      pastelQueijoPresunto: 8.00,
-                      pastelPizza: 8.00,
-                      pastelFrangoCatupiry: 8.00,
-                      pastelQueijo: 10.00,
-                      pastelCarneQueijo: 12.00,
-                      pastelFrangoQueijo: 12.00,
-                      pastelCalabresaQueijo: 14.00,
-                      pastelQueijoBacon: 13.00,
-                      pastelCostela: 16.00,
-                      pastelHamburguer: 12.00,
-                      pastelChocolateNinho: 12.00,
-                      pastelDoceLeiteBanana: 12.00,
-                      adicionalBombom: 3.00,
-                      adicionalCocoRalado: 3.00,
-                      adicionalPacoca: 3.00,
-                      adicionalQueijo: 4.00,
-                      adicionalCatupiry: 3.00,
-                      adicionalCalabresa: 3.00,
-                      adicionalBacon: 3.00,
-                      bebidaGuarana: 8.00,
-                      bebidaCocaCola: 14.00,
-                      bebidaLatinha: 5.00,
-                      bebidaCerveja: 5.00,
-                      bebidaSuco: 4.00,
-                  };
-      
-                  let total = 0;
-      
-                  for (let item in precos) {
-                      const quantidade = parseFloat(document.getElementById(item).value) || 0;
-                      total += quantidade * precos[item];
-                  }
-      
-                  const taxa = document.getElementById('taxa').value;
-                  if (taxa === 'delivery') {
-                      total += 4;
-                  }
-      
-                  document.getElementById('total').innerText = 'Total: R$ ' + total.toFixed(2);
-                  return total;
-              }
+        const precos = {
+            pastelCarne: 8.00,
+            pastelQueijoPresunto: 8.00,
+            pastelPizza: 8.00,
+            pastelFrangoCatupiry: 8.00,
+            pastelQueijo: 10.00,
+            pastelCarneQueijo: 12.00,
+            pastelFrangoQueijo: 12.00,
+            pastelCalabresaQueijo: 14.00,
+            pastelQueijoBacon: 13.00,
+            pastelCostela: 16.00,
+            pastelHamburguer: 12.00,
+            pastelChocolateNinho: 12.00,
+            pastelDoceLeiteBanana: 12.00,
+            adicionalBombom: 3.00,
+            adicionalCocoRalado: 3.00,
+            adicionalPacoca: 3.00,
+            adicionalQueijo: 4.00,
+            adicionalCatupiry: 3.00,
+            adicionalCalabresa: 3.00,
+            adicionalBacon: 3.00,
+            bebidaGuarana: 8.00,
+            bebidaCocaCola: 14.00,
+            bebidaLatinha: 5.00,
+            bebidaCerveja: 5.00,
+            bebidaSuco: 4.00,
+        };
+
+        let total = 0;
+
+        for (let item in precos) {
+            const elemento = document.getElementById(item);
+            if (elemento) {
+                const quantidade = parseFloat(elemento.value) || 0;
+                total += quantidade * precos[item];
+            } else {
+                console.error('Elemento não encontrado:', item);
+            }
+        }
+
+        const taxa = document.getElementById('taxa').value;
+        if (taxa === 'delivery') {
+            total += 4;
+        }
+
+        document.getElementById('total').innerText = 'Total: R$ ' + total.toFixed(2);
+        return total;
+    }
       
               function formatarItens(tipo, itens) {
                   return Object.entries(itens)
@@ -816,70 +818,70 @@
               }
       
               function adicionarPedido() {
-                  const nomeCliente = document.getElementById('nomeCliente').value.trim();
-                  const total = calcularTotal();
-                  const observacoes = document.getElementById('observacoes').value.trim();
-                  const pagamento = document.getElementById('pagamento').value;
-                  const taxa = document.getElementById('taxa').value;
-                  const endereco = document.getElementById('endereco').value.trim();
-      
-                  if (nomeCliente && total > 0) {
-                      const pasteis = {
-                          carne: document.getElementById('pastelCarne').value,
-                          queijoPresunto: document.getElementById('pastelQueijoPresunto').value,
-                          pizza: document.getElementById('pastelPizza').value,
-                          frangoCatupiry: document.getElementById('pastelFrangoCatupiry').value,
-                          queijo: document.getElementById('pastelQueijo').value,
-                          carneQueijo: document.getElementById('pastelCarneQueijo').value,
-                          frangoQueijo: document.getElementById('pastelFrangoQueijo').value,
-                          calabresaQueijo: document.getElementById('pastelCalabresaQueijo').value,
-                          queijoBacon: document.getElementById('pastelQueijoBacon').value,
-                          costela: document.getElementById('pastelCostela').value,
-                          hamburguer: document.getElementById('pastelHamburguer').value,
-                          chocolateNinho: document.getElementById('pastelChocolateNinho').value,
-                          doceLeiteBanana: document.getElementById('pastelDoceLeiteBanana').value,
-                      };
-      
-                      const adicionais = {
-                          bombom: document.getElementById('adicionalBombom').value,
-                          cocoRalado: document.getElementById('adicionalCocoRalado').value,
-                          pacoca: document.getElementById('adicionalPacoca').value,
-                          queijo: document.getElementById('adicionalQueijo').value,
-                          catupiry: document.getElementById('adicionalCatupiry').value,
-                          calabresa: document.getElementById('adicionalCalabresa').value,
-                          bacon: document.getElementById('adicionalBacon').value,
-                      };
-      
-                      const bebidas = {
-                          guarana: document.getElementById('bebidaGuarana').value,
-                          cocaCola: document.getElementById('bebidaCocaCola').value,
-                          latinha: document.getElementById('bebidaLatinha').value,
-                          cerveja: document.getElementById('bebidaCerveja').value,
-                          suco: document.getElementById('bebidaSuco').value,
-                      };
-      
-                      const pedido = {
-                          nome: nomeCliente,
-                          horario: new Date().toLocaleString(),
-                          pastel: formatarItens('pastel', pasteis),
-                          adicionais: formatarItens('adicional', adicionais),
-                          bebidas: formatarItens('bebida', bebidas),
-                          observacoes: observacoes,
-                          pagamento: pagamento,
-                          taxa: taxa,
-                          endereco: taxa === 'delivery' ? endereco : '',
-                          total: total.toFixed(2)
-                      };
-      
-                      pedidos.push(pedido);
-                      localStorage.setItem('pedidos', JSON.stringify(pedidos));
-                      enviarPedidoParaPlanilha(pedido);
-                      atualizarListaPedidos();
-                      limparCampos();
-                  } else {
-                      alert('Por favor, insira o nome do cliente e adicione itens ao pedido.');
-                  }
-              }
+    const nomeCliente = document.getElementById('nomeCliente').value.trim();
+    const total = calcularTotal();
+    const observacoes = document.getElementById('observacoes').value.trim();
+    const pagamento = document.getElementById('pagamento').value;
+    const taxa = document.getElementById('taxa').value;
+    const endereco = document.getElementById('endereco').value.trim();
+
+    if (nomeCliente && total > 0) {
+        const pasteis = {
+            carne: document.getElementById('pastelCarne').value,
+            queijoPresunto: document.getElementById('pastelQueijoPresunto').value,
+            pizza: document.getElementById('pastelPizza').value,
+            frangoCatupiry: document.getElementById('pastelFrangoCatupiry').value,
+            queijo: document.getElementById('pastelQueijo').value,
+            carneQueijo: document.getElementById('pastelCarneQueijo').value,
+            frangoQueijo: document.getElementById('pastelFrangoQueijo').value,
+            calabresaQueijo: document.getElementById('pastelCalabresaQueijo').value,
+            queijoBacon: document.getElementById('pastelQueijoBacon').value,
+            costela: document.getElementById('pastelCostela').value,
+            hamburguer: document.getElementById('pastelHamburguer').value,
+            chocolateNinho: document.getElementById('pastelChocolateNinho').value,
+            doceLeiteBanana: document.getElementById('pastelDoceLeiteBanana').value,
+        };
+
+        const adicionais = {
+            bombom: document.getElementById('adicionalBombom').value,
+            cocoRalado: document.getElementById('adicionalCocoRalado').value,
+            pacoca: document.getElementById('adicionalPacoca').value,
+            queijo: document.getElementById('adicionalQueijo').value,
+            catupiry: document.getElementById('adicionalCatupiry').value,
+            calabresa: document.getElementById('adicionalCalabresa').value,
+            bacon: document.getElementById('adicionalBacon').value,
+        };
+
+        const bebidas = {
+            guarana: document.getElementById('bebidaGuarana').value,
+            cocaCola: document.getElementById('bebidaCocaCola').value,
+            latinha: document.getElementById('bebidaLatinha').value,
+            cerveja: document.getElementById('bebidaCerveja').value,
+            suco: document.getElementById('bebidaSuco').value,
+        };
+
+        const pedido = {
+            nome: nomeCliente,
+            horario: new Date().toLocaleString(),
+            pastel: formatarItens('pastel', pasteis),
+            adicionais: formatarItens('adicional', adicionais),
+            bebidas: formatarItens('bebida', bebidas),
+            observacoes: observacoes,
+            pagamento: pagamento,
+            taxa: taxa,
+            endereco: taxa === 'delivery' ? endereco : '',
+            total: total.toFixed(2)
+        };
+
+        pedidos.push(pedido);
+        localStorage.setItem('pedidos', JSON.stringify(pedidos));
+        enviarPedidoParaPlanilha(pedido);
+        atualizarListaPedidos();
+        limparCampos();
+    } else {
+        alert('Por favor, insira o nome do cliente e adicione itens ao pedido.');
+    }
+}
       
               function mostrarCampoEndereco() {
                   const taxa = document.getElementById('taxa').value;
@@ -975,5 +977,3 @@
           </script>
       </body>
       </html>
-       8,00):</label>
-            <input type="number" id="pastelFrangoCatupiry" value="0
