@@ -610,6 +610,18 @@
           <input type="number" id="pastelCostela" value="0" min="0" />
         </div>
         <div class="item">
+          <label for="pastelCostela">Pastel de Costela Acebolada (R$ 18,00):</label>
+          <input type="number" id="pastelCostelaAcebolada" value="0" min="0" />
+        </div>
+        <div class="item">
+        <label for="pastelCostela">Pastel de Costela com Quejo (R$ 20,00):</label>
+        <input type="number" id="pastelCostelacomQuejo" value="0" min="0" />
+      </div>
+      <div class="item">
+      <label for="pastelCostela">Pastel Duplo (R$ 18,00):</label>
+      <input type="number" id="PastelDuplo" value="0" min="0" />
+    </div>
+        <div class="item">
           <label for="pastelHamburguer">Pastel de Hamburguer (R$ 12,00):</label>
           <input type="number" id="pastelHamburguer" value="0" min="0" />
         </div>
@@ -651,6 +663,10 @@
         <div class="item">
           <label for="adicionalBacon">Bacon (R$ 3,00):</label>
           <input type="number" id="adicionalBacon" value="0" min="0" />
+        </div>
+        <div class="item">
+          <label for="adicionalBacon">Milho (R$ 3,00):</label>
+          <input type="number" id="adicionalMilho" value="0" min="0" />
         </div>
   
         <h2>Bebidas</h2>
@@ -751,12 +767,16 @@
             pastelCarneQueijo: 12.00,
             pastelFrangoQueijo: 12.00,
             pastelCalabresaQueijo: 14.00,
+            pastelCostelaAcebolada: 18.00,
+            pastelCostelacomQuejo: 20.00,
+            pastelDuplo: 18.00,
             pastelQueijoBacon: 13.00,
             pastelCostela: 16.00,
             pastelHamburguer: 12.00,
             pastelChocolateNinho: 12.00,
             pastelDoceLeiteBanana: 12.00,
             adicionalBombom: 3.00,
+            adicionalMilho: 3.00,
             adicionalCocoRalado: 3.00,
             adicionalPacoca: 3.00,
             adicionalQueijo: 4.00,
@@ -805,6 +825,9 @@
             const pasteis = {
               carne: document.getElementById('pastelCarne').value,
               queijoPresunto: document.getElementById('pastelQueijoPresunto').value,
+              CostelacomQueijo: document.getElementById('pastelCostelacomQuejo').value,
+              CostelaAcebolada: document.getElementById('pastelCostelaAcebolada').value,
+              pastelduplo: document.getElementById('PastelDuplo').value,
               pizza: document.getElementById('pastelPizza').value,
               frangoCatupiry: document.getElementById('pastelFrangoCatupiry').value,
               queijo: document.getElementById('pastelQueijo').value,
@@ -820,6 +843,7 @@
   
             const adicionais = {
               bombom: document.getElementById('adicionalBombom').value,
+             milho: document.getElementById('adicionalMilho').value,
               cocoRalado: document.getElementById('adicionalCocoRalado').value,
               pacoca: document.getElementById('adicionalPacoca').value,
               queijo: document.getElementById('adicionalQueijo').value,
