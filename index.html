@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Casa do Pastel</title>
     <link rel="icon" href="https://i.imgur.com/dBaLJbE.png" />
     <link rel="stylesheet" href="css.css" />
-    <meta name="viewport" content="width=device-width, initial-scales=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
@@ -36,7 +36,7 @@
           padding: 30px;
           border-radius: 15px;
           animation: pulseBorder 2s infinite;
-          box-shadow: 0 0 0 5px rgba(227, 188, 33, 0.5); /* Adiciona uma borda interna */
+          box-shadow: 0 0 0 5px rgba(227, 188, 33, 0.5);
       }
 
       h1 {
@@ -179,61 +179,57 @@
           color: #e3bc21;
           margin-bottom: 20px;
           font-size: 2.5em;
-          animation: pulse 2s infinite alternate; /* Aplica a animação pulse */
+          animation: pulse 2s infinite alternate;
       }
 
       /* ======= DROPDOWN ===========*/
       .nav_dropwdown {
-              overflow: hidden;
-              max-height: 21px;
-              transition: 0.4s ease-in-out;
-            }
-            .nav_dropdown-collapse {
-              background-color: var(--first-color-ligth);
-              border-radius: 0.25rem;
-              margin-top: 1rem;
-            }
-            .nav_dropwdown-content {
-              display: grid;
-              row-gap: 0.5rem;
-              padding: 0.75rem 2.5rem 0.75rem 1.8rem;
-            }
-            .nav_dropdown-item {
-              font-size: var(--smaller-font-size);
-              font-weight: var(--font-medium);
-              color: var(--text-color);
-            }
-            .nav_dropdown-item:hover {
-              color: var(--first-color);
-            }
-            .nav_dropwdown-icon {
-              margin-left: auto;
-              transition: 0.4s;
-            }
+          overflow: hidden;
+          max-height: 21px;
+          transition: 0.4s ease-in-out;
+      }
+      .nav_dropdown-collapse {
+          background-color: var(--first-color-light);
+          border-radius: 0.25rem;
+          margin-top: 1rem;
+      }
+      .nav_dropwdown-content {
+          display: grid;
+          row-gap: 0.5rem;
+          padding: 0.75rem 2.5rem 0.75rem 1.8rem;
+      }
+      .nav_dropdown-item {
+          font-size: var(--smaller-font-size);
+          font-weight: var(--font-medium);
+          color: var(--text-color);
+      }
+      .nav_dropdown-item:hover {
+          color: var(--first-color);
+      }
+      .nav_dropwdown-icon {
+          margin-left: auto;
+          transition: 0.4s;
+      }
 
-            /* ======= NAVBAR ===========*/
-      
-            .nav {
+      /* ======= NAVBAR ===========*/
+      .nav {
           position: fixed;
           top: 0;
-          left: 0; /* Alterado para 0 para manter o menu oculto inicialmente */
+          left: 0;
           height: 100vh;
           padding: 1rem 1rem 3rem;
           background-color: var(--container-color);
           box-shadow: 1px 0 0 rgba(22, 8, 43, 0.1);
           z-index: var(--z-fixed);
-          transition: left 0.4s; /* Mantenha a transição de left para animação */
-          display: none; /* Ocultar o menu inicialmente */
+          transition: left 0.4s;
+          display: none;
       }
-            
 
-      /* Estilo para tornar o menu visível quando a classe "show-menu" está presente */
       .nav.show-menu {
-          display: block; /* Ou outro valor apropriado para tornar o menu visível */
-          /* Outros estilos conforme necessário */
+          display: block;
       }
 
-            @media screen and (max-width: 519px) {
+      @media screen and (max-width: 519px) {
           .header_container span {
               color: var(--text-color);
               font-size: 1.1rem;
@@ -243,320 +239,305 @@
           }
       }
             
-            .nav_container {
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              justify-content: space-between;
-              overflow: auto;
-            }
-            .nav_container::-webkit-scrollbar {
-              background: transparent;
-              width: 3px;
-            }
-            .nav_container::-webkit-scrollbar-thumb {
-              background-color: var(--tittle-background);
-              box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-              border-radius: 20px;
-            }
-            .nav_logo {
-              font-weight: var(--font-semi-bold);
-              margin-bottom: 2.5rem;
-              font-size: 24px;
-            }
-            .nav_logo span {
-              margin-left: 10px;
-            }
-            .nav_list,
-            .nav_itens {
-              display: grid;
-            }
-            .nav_list {
-              row-gap: 2.5rem;
-            }
-            .nav_itens {
-              row-gap: 1.5rem;
-            }
-            .nav_subtitle {
-              font-size: 1rem;
-              text-transform: uppercase;
-              letter-spacing: 0.1rem;
-              color: var(--text-color-ligth);
-            }
-            .nav_link {
-              display: flex;
-              align-items: center;
-              color: var(--text-color);
-            }
-            .nav_link:hover {
-              color: var(--first-color);
-            }
-            .nav_icon {
-              font-size: 1.2rem;
-              margin-right: 0.5rem;
-            }
-            .nav_name {
-              font-size: var(--small-font-size);
-              font-weight: var(--font-medium);
-              white-space: nowrap;
-            }
-            .nav_developed {
-              margin-top: 5rem;
-            }
-
-            /* MEDIA QUERIES */
-            @media screen and (max-width: 1050px) {
-              :root {
-                --font-tittle: 60px;
-                --font-32px: 30px;
-                --font-26px: 24px;
-                --font-24px: 22px;
-                --font-22px: 20px;
-                --font-20px: 18px;
-                --font-18px: 16px;
-                --font-17px: 17px;
-                --font-16px: 14px;
-              }
-            }
-            @media screen and (max-width: 850px) {
-              :root {
-                --font-tittle: 52px;
-                --font-32px: 28px;
-                --font-26px: 22px;
-                --font-24px: 20px;
-                --font-22px: 18px;
-                --font-20px: 16px;
-                --font-18px: 14px;
-                --font-17px: 13px;
-                --font-16px: 12px;
-              }
-              .card img {
-                width: 60px;
-              }
-              form .details .input-box {
-                width: 100%;
-              }
-              form .button {
-                height: 35px;
-                width: 100%;
-                margin: 5px 0 20px 0;
-              }
-              #select_options {
-                width: 95%;
-                margin: 15px 2.5%;
-              }
-            }
-            @media screen and (max-width: 600px) {
-              :root {
-                --font-tittle: 48px;
-                --font-32px: 27px;
-        
-            --font-26px: 21px;
-                --font-24px: 19px;
-                --font-22px: 17px;
-                --font-20px: 15px;
-                --font-18px: 14px;
-                --font-17px: 13px;
-                --font-16px: 12px;
-              }
-              .card img {
-                width: 55px;
-              }
-            }
-            @media screen and (max-width: 500px) {
-              :root {
-                --font-tittle: 38px;
-                --font-32px: 24px;
-                --font-26px: 18px;
-                --font-24px: 18px;
-                --font-22px: 16px;
-                --font-20px: 14px;
-                --font-18px: 12px;
-                --font-17px: 11px;
-                --font-16px: 10px;
-              }
-              .card img {
-                width: 47px;
-              }
-          
-          }
-          
-            /* COISAS DA SCROLLBAR */
-            body {
-              overflow: overlay;
-            }
-            ::-webkit-scrollbar {
-              background: transparent;
-              width: 5px;
-            }
-            ::-webkit-scrollbar-thumb {
-              background-color: var(--tittle-background);
-              box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-              border-radius: 20px;
-            }
-            /* FOOTER */
-            footer {
-              width: 100%;
-              background-color: var(--container-color);
-              color: #fff;
-            }
-            .footer_header {
-              padding: 20px;
-              display: flex;
-              width: 100%;
-              justify-content: center;
-            }
-            .footer_center {
-              width: 100%;
-              margin: auto;
-              text-align: center;
-            }
-            .footer_header .header_tittle {
-              width: auto;
-              display: inline-block;
-              padding-bottom: 20px;
-              font-size: var(--font-24px);
-            }
-            .footer_header .btn_hd {
-              display: inline-block;
-              cursor: pointer;
-              background-color: #000000;
-              padding: 5px;
-              border-radius: 5px;
-              width: 20%;
-              font-size: var(--font-16px);
-            }
-            .footer_header .btn_hd:hover {
-              background-color: #000000;
-            }
-            .footer_header .btn_hd i {
-              display: block;
-              margin: 0;
-            }
-            .title {
-        text-align: center;
-        background-color: var(--first-color-ligth);
-        color: #fff;
-        padding: 10px 8px;
-        font-weight: 500;
+      .nav_container {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          overflow: auto;
       }
-      
-            .footer_header .btn_hd .nav_name {
-              margin: auto;
-            }
-            .footer_base {
-              font-size: var(--font-16px);
-              padding: 20px;
-              background-color: #000000;
-              text-align: center;
-            }
-            .footer_base .developed .nav_name,
-            .footer_base .developed .nav_icon {
-              font-size: var(--font-16px);
-            }
-            @media screen and (max-width: 650px) {
-              .footer_header .btn_hd {
-                width: 30%;
-              }
-            }
-            @media screen and (max-width: 450px) {
-              .footer_header .btn_hd {
-                width: 31%;
-              }
-            }
+      .nav_container::-webkit-scrollbar {
+          background: transparent;
+          width: 3px;
+      }
+      .nav_container::-webkit-scrollbar-thumb {
+          background-color: var(--tittle-background);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          border-radius: 20px;
+      }
+      .nav_logo {
+          font-weight: var(--font-semi-bold);
+          margin-bottom: 2.5rem;
+          font-size: 24px;
+      }
+      .nav_logo span {
+          margin-left: 10px;
+      }
+      .nav_list,
+      .nav_items {
+          display: grid;
+      }
+      .nav_list {
+          row-gap: 2.5rem;
+      }
+      .nav_items {
+          row-gap: 1.5rem;
+      }
+      .nav_subtitle {
+          font-size: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          color: var(--text-color-light);
+      }
+      .nav_link {
+          display: flex;
+          align-items: center;
+          color: var(--text-color);
+      }
+      .nav_link:hover {
+          color: var(--first-color);
+      }
+      .nav_icon {
+          font-size: 1.2rem;
+          margin-right: 0.5rem;
+      }
+      .nav_name {
+          font-size: var(--small-font-size);
+          font-weight: var(--font-medium);
+          white-space: nowrap;
+      }
+      .nav_developed {
+          margin-top: 5rem;
+      }
 
-            #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #e3bc21;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 2em;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+      @media screen and (max-width: 1050px) {
+          :root {
+              --font-title: 60px;
+              --font-32px: 30px;
+              --font-26px: 24px;
+              --font-24px: 22px;
+              --font-22px: 20px;
+              --font-20px: 18px;
+              --font-18px: 16px;
+              --font-17px: 17px;
+              --font-16px: 14px;
           }
-
-          /* Esconder a tela de carregamento */
-          #loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
+      }
+      @media screen and (max-width: 850px) {
+          :root {
+              --font-title: 52px;
+              --font-32px: 28px;
+              --font-26px: 22px;
+              --font-24px: 20px;
+              --font-22px: 18px;
+              --font-20px: 16px;
+              --font-18px: 14px;
+              --font-17px: 13px;
+              --font-16px: 12px;
           }
+          .card img {
+              width: 60px;
+          }
+          form .details .input-box {
+              width: 100%;
+          }
+          form .button {
+              height: 35px;
+              width: 100%;
+              margin: 5px 0 20px 0;
+          }
+          #select_options {
+              width: 95%;
+              margin: 15px 2.5%;
+          }
+      }
+      @media screen and (max-width: 600px) {
+          :root {
+              --font-title: 48px;
+              --font-32px: 27px;
+              --font-26px: 21px;
+              --font-24px: 19px;
+              --font-22px: 17px;
+              --font-20px: 15px;
+              --font-18px: 14px;
+              --font-17px: 13px;
+              --font-16px: 12px;
+          }
+          .card img {
+              width: 55px;
+          }
+      }
+      @media screen and (max-width: 500px) {
+          :root {
+              --font-title: 38px;
+              --font-32px: 24px;
+              --font-26px: 18px;
+              --font-24px: 18px;
+              --font-22px: 16px;
+              --font-20px: 14px;
+              --font-18px: 12px;
+              --font-17px: 11px;
+              --font-16px: 10px;
+          }
+          .card img {
+              width: 47px;
+          }
+      }
 
-          /* Animação para o texto "Carregando..." */
-          @keyframes fadeInOut {
-            0%, 100% {
+      body {
+          overflow: overlay;
+      }
+      ::-webkit-scrollbar {
+          background: transparent;
+          width: 5px;
+      }
+      ::-webkit-scrollbar-thumb {
+          background-color: var(--tittle-background);
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          border-radius: 20px;
+      }
+      footer {
+          width: 100%;
+          background-color: var(--container-color);
+          color: #fff;
+      }
+      .footer_header {
+          padding: 20px;
+          display: flex;
+          width: 100%;
+          justify-content: center;
+      }
+      .footer_center {
+          width: 100%;
+          margin: auto;
+          text-align: center;
+      }
+      .footer_header .header_title {
+          width: auto;
+          display: inline-block;
+          padding-bottom: 20px;
+          font-size: var(--font-24px);
+      }
+      .footer_header .btn_hd {
+          display: inline-block;
+          cursor: pointer;
+          background-color: #000000;
+          padding: 5px;
+          border-radius: 5px;
+          width: 20%;
+          font-size: var(--font-16px);
+      }
+      .footer_header .btn_hd:hover {
+          background-color: #000000;
+      }
+      .footer_header .btn_hd i {
+          display: block;
+          margin: 0;
+      }
+      .title {
+          text-align: center;
+          background-color: var(--first-color-light);
+          color: #fff;
+          padding: 10px 8px;
+          font-weight: 500;
+      }
+      .footer_header .btn_hd .nav_name {
+          margin: auto;
+      }
+      .footer_base {
+          font-size: var(--font-16px);
+          padding: 20px;
+          background-color: #000000;
+          text-align: center;
+      }
+      .footer_base .developed .nav_name,
+      .footer_base .developed .nav_icon {
+          font-size: var(--font-16px);
+      }
+      @media screen and (max-width: 650px) {
+          .footer_header .btn_hd {
+              width: 30%;
+          }
+      }
+      @media screen and (max-width: 450px) {
+          .footer_header .btn_hd {
+              width: 31%;
+          }
+      }
+
+      #loading-screen {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #e3bc21;
+          z-index: 9999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          font-size: 2em;
+          transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+
+      #loading-screen.hidden {
+          opacity: 0;
+          visibility: hidden;
+      }
+
+      @keyframes fadeInOut {
+          0%, 100% {
               opacity: 1;
-            }
-            50% {
+          }
+          50% {
               opacity: 0.5;
-            }
           }
+      }
 
-          /* Aplicar a animação ao texto */
-          #loading-screen span {
-            animation: fadeInOut 1s infinite;
-          }
+      #loading-screen span {
+          animation: fadeInOut 1s infinite;
+      }
 
-          /* Animação para o conteúdo */
-          @keyframes fadeInUp {
-            0% {
+      @keyframes fadeInUp {
+          0% {
               opacity: 0;
               transform: translateY(20px);
-            }
-            100% {
+          }
+          100% {
               opacity: 1;
               transform: translateY(0);
-            }
           }
+      }
 
-          /* Estilizando o select */
-          select {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            padding: 8px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            cursor: pointer;
-            outline: none;
-            transition: border-color 0.3s;
-          }
+      select {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          padding: 8px;
+          font-size: 16px;
+          border: 1px solid #ccc;
+          cursor: pointer;
+          outline: none;
+          transition: border-color 0.3s;
+      }
 
-          /* Adicionando uma borda diferente quando o select estiver focado */
-          select:focus {
-            border-color: #474b4f;
-          }
+      select:focus {
+          border-color: #474b4f;
+      }
 
-          /* Adicionando uma transição suave ao dropdown */
-          select option {
-            transition: background-color 0.3s;
-          }
+      select option {
+          transition: background-color 0.3s;
+      }
 
-          /* Adicionando uma animação de fade quando o dropdown é aberto */
-          select:hover, select:focus {
-            animation: fadeIn 0.3s ease-in-out;
-          }
+      select:hover, select:focus {
+          animation: fadeIn 0.3s ease-in-out;
+      }
 
-          /* Animação de fade */
-          @keyframes fadeIn {
-            from {
+      @keyframes fadeIn {
+          from {
               opacity: 0.5;
-            }
-            to {
-              opacity: 1;
-            }
           }
-        </style>
-  </head>
-  <body>
+          to {
+              opacity: 1;
+          }
+      }
+    </style>
+</head>
+<body>
     <div id="loading-screen" style="display: flex; align-items: center; justify-content: center; text-align: center;">
-      <img src="https://i.imgur.com/dBaLJbE.png" alt="Ícone Casa do Pastel" style="width: 40px; height: auto;">
-      <span style="margin-left: 10px;">#CASADOPASTEL #CompartilhandoMomentos</span>
+        <img src="https://i.imgur.com/dBaLJbE.png" alt="Ícone Casa do Pastel" style="width: 40px; height: auto;">
+        <span style="margin-left: 10px;">#CASADOPASTEL #CompartilhandoMomentos</span>
     </div>
 
     <div class="container">
@@ -568,7 +549,6 @@
         </div>
   
         <h2>Pastéis</h2>
-        <!-- Aqui ficam os itens de pasteis -->
         <div class="item">
           <label for="pastelCarne">Pastel de Carne (R$ 8,00):</label>
           <input type="number" id="pastelCarne" value="0" min="0" />
@@ -610,17 +590,17 @@
           <input type="number" id="pastelCostela" value="0" min="0" />
         </div>
         <div class="item">
-          <label for="pastelCostela">Pastel de Costela Acebolada (R$ 18,00):</label>
+          <label for="pastelCostelaAcebolada">Pastel de Costela Acebolada (R$ 18,00):</label>
           <input type="number" id="pastelCostelaAcebolada" value="0" min="0" />
         </div>
         <div class="item">
-        <label for="pastelCostela">Pastel de Costela com Quejo (R$ 20,00):</label>
-        <input type="number" id="pastelCostelacomQuejo" value="0" min="0" />
-      </div>
-      <div class="item">
-      <label for="pastelCostela">Pastel Duplo (R$ 18,00):</label>
-      <input type="number" id="PastelDuplo" value="0" min="0" />
-    </div>
+          <label for="pastelCostelacomQueijo">Pastel de Costela com Queijo (R$ 20,00):</label>
+          <input type="number" id="pastelCostelacomQueijo" value="0" min="0" />
+        </div>
+        <div class="item">
+          <label for="pastelDuplo">Pastel Duplo (R$ 18,00):</label>
+          <input type="number" id="pastelDuplo" value="0" min="0" />
+        </div>
         <div class="item">
           <label for="pastelHamburguer">Pastel de Hamburguer (R$ 12,00):</label>
           <input type="number" id="pastelHamburguer" value="0" min="0" />
@@ -635,7 +615,6 @@
         </div>
   
         <h2>Adicionais</h2>
-        <!-- Aqui ficam os itens adicionais -->
         <div class="item">
           <label for="adicionalBombom">Bombom (R$ 3,00):</label>
           <input type="number" id="adicionalBombom" value="0" min="0" />
@@ -665,12 +644,11 @@
           <input type="number" id="adicionalBacon" value="0" min="0" />
         </div>
         <div class="item">
-          <label for="adicionalBacon">Milho (R$ 3,00):</label>
+          <label for="adicionalMilho">Milho (R$ 3,00):</label>
           <input type="number" id="adicionalMilho" value="0" min="0" />
         </div>
   
         <h2>Bebidas</h2>
-        <!-- Aqui ficam os itens de bebidas -->
         <div class="item">
           <label for="bebidaGuarana">Guaraná 2L (R$ 8,00):</label>
           <input type="number" id="bebidaGuarana" value="0" min="0" />
@@ -732,12 +710,13 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
       <script>
         const pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-        const pedidosConcluidos = JSON.parse(localStorage.getItem('pedidosConcluidos')) || [];
-  
+        const pedidosConcluidos = JSON.parse(localStorage.getItem('pedidosConcluidos'))
+        || [];
+
         async function enviarPedidoParaPlanilha(pedido) {
           try {
             const url = 'https://api.sheetmonkey.io/form/w2H2FdtF1NbBLgredotSkn';
-  
+
             const response = await fetch(url, {
               method: 'POST',
               headers: {
@@ -745,7 +724,7 @@
               },
               body: JSON.stringify(pedido)
             });
-  
+
             if (response.ok) {
               console.log('Pedido enviado com sucesso para a planilha!');
             } else {
@@ -756,7 +735,7 @@
             alert('Ocorreu um erro ao enviar o pedido para a planilha.');
           }
         }
-  
+
         function calcularTotal() {
           const precos = {
             pastelCarne: 8.00,
@@ -767,52 +746,52 @@
             pastelCarneQueijo: 12.00,
             pastelFrangoQueijo: 12.00,
             pastelCalabresaQueijo: 14.00,
-            pastelCostelaAcebolada: 18.00,
-            pastelCostelacomQuejo: 20.00,
-            pastelDuplo: 18.00,
             pastelQueijoBacon: 13.00,
             pastelCostela: 16.00,
+            pastelCostelaAcebolada: 18.00,
+            pastelCostelacomQueijo: 20.00,
+            pastelDuplo: 18.00,
             pastelHamburguer: 12.00,
             pastelChocolateNinho: 12.00,
             pastelDoceLeiteBanana: 12.00,
             adicionalBombom: 3.00,
-            adicionalMilho: 3.00,
             adicionalCocoRalado: 3.00,
             adicionalPacoca: 3.00,
             adicionalQueijo: 4.00,
             adicionalCatupiry: 3.00,
             adicionalCalabresa: 3.00,
             adicionalBacon: 3.00,
+            adicionalMilho: 3.00,
             bebidaGuarana: 8.00,
             bebidaCocaCola: 14.00,
             bebidaLatinha: 5.00,
             bebidaCerveja: 5.00,
-            bebidaSuco: 4.00,
+            bebidaSuco: 4.00
           };
-  
+
           let total = 0;
-  
+
           for (let item in precos) {
             const quantidade = parseFloat(document.getElementById(item).value) || 0;
             total += quantidade * precos[item];
           }
-  
+
           const taxa = document.getElementById('taxa').value;
           if (taxa === 'delivery') {
             total += 4;
           }
-  
+
           document.getElementById('total').innerText = 'Total: R$ ' + total.toFixed(2);
           return total;
         }
-  
+
         function formatarItens(tipo, itens) {
           return Object.entries(itens)
             .filter(([chave, valor]) => valor > 0)
             .map(([chave, valor]) => `${chave}: ${valor}`)
             .join(', ');
         }
-  
+
         function adicionarPedido() {
           const nomeCliente = document.getElementById('nomeCliente').value.trim();
           const total = calcularTotal();
@@ -820,14 +799,11 @@
           const pagamento = document.getElementById('pagamento').value;
           const taxa = document.getElementById('taxa').value;
           const endereco = taxa === 'delivery' ? document.getElementById('endereco').value.trim() : '';
-  
+
           if (nomeCliente && total > 0) {
             const pasteis = {
               carne: document.getElementById('pastelCarne').value,
               queijoPresunto: document.getElementById('pastelQueijoPresunto').value,
-              CostelacomQueijo: document.getElementById('pastelCostelacomQuejo').value,
-              CostelaAcebolada: document.getElementById('pastelCostelaAcebolada').value,
-              pastelduplo: document.getElementById('PastelDuplo').value,
               pizza: document.getElementById('pastelPizza').value,
               frangoCatupiry: document.getElementById('pastelFrangoCatupiry').value,
               queijo: document.getElementById('pastelQueijo').value,
@@ -836,30 +812,33 @@
               calabresaQueijo: document.getElementById('pastelCalabresaQueijo').value,
               queijoBacon: document.getElementById('pastelQueijoBacon').value,
               costela: document.getElementById('pastelCostela').value,
+              costelaAcebolada: document.getElementById('pastelCostelaAcebolada').value,
+              costelaComQueijo: document.getElementById('pastelCostelacomQueijo').value,
+              pastelDuplo: document.getElementById('pastelDuplo').value,
               hamburguer: document.getElementById('pastelHamburguer').value,
               chocolateNinho: document.getElementById('pastelChocolateNinho').value,
-              doceLeiteBanana: document.getElementById('pastelDoceLeiteBanana').value,
+              doceLeiteBanana: document.getElementById('pastelDoceLeiteBanana').value
             };
-  
+
             const adicionais = {
               bombom: document.getElementById('adicionalBombom').value,
-             milho: document.getElementById('adicionalMilho').value,
               cocoRalado: document.getElementById('adicionalCocoRalado').value,
               pacoca: document.getElementById('adicionalPacoca').value,
               queijo: document.getElementById('adicionalQueijo').value,
               catupiry: document.getElementById('adicionalCatupiry').value,
               calabresa: document.getElementById('adicionalCalabresa').value,
               bacon: document.getElementById('adicionalBacon').value,
+              milho: document.getElementById('adicionalMilho').value
             };
-  
+
             const bebidas = {
               guarana: document.getElementById('bebidaGuarana').value,
               cocaCola: document.getElementById('bebidaCocaCola').value,
               latinha: document.getElementById('bebidaLatinha').value,
               cerveja: document.getElementById('bebidaCerveja').value,
-              suco: document.getElementById('bebidaSuco').value,
+              suco: document.getElementById('bebidaSuco').value
             };
-  
+
             const pedido = {
               nome: nomeCliente,
               horario: new Date().toLocaleString(),
@@ -872,7 +851,7 @@
               endereco: endereco,
               total: total.toFixed(2)
             };
-  
+
             pedidos.push(pedido);
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
             enviarPedidoParaPlanilha(pedido);
@@ -882,11 +861,11 @@
             alert('Por favor, insira o nome do cliente e adicione itens ao pedido.');
           }
         }
-  
+
         function atualizarListaPedidos() {
           const listaPedidos = document.getElementById('listaPedidos');
           listaPedidos.innerHTML = '';
-  
+
           pedidos.forEach((pedido, index) => {
             const div = document.createElement('div');
             div.className = 'pedido';
@@ -900,7 +879,7 @@
             listaPedidos.appendChild(div);
           });
         }
-  
+
         function concluirPedido(index) {
           const pedidoConcluido = pedidos.splice(index, 1)[0];
           pedidosConcluidos.push(pedidoConcluido);
@@ -908,7 +887,7 @@
           localStorage.setItem('pedidosConcluidos', JSON.stringify(pedidosConcluidos));
           atualizarListaPedidos();
         }
-  
+
         function limparCampos() {
           document.getElementById('nomeCliente').value = '';
           document.getElementById('observacoes').value = '';
@@ -917,11 +896,11 @@
           inputs.forEach(input => input.value = 0);
           calcularTotal();
         }
-  
+
         function gerarRelatorio() {
           const { jsPDF } = window.jspdf;
           const doc = new jsPDF();
-  
+
           let yPosition = 10;
           pedidosConcluidos.forEach(pedido => {
             doc.text(`Nome: ${pedido.nome}`, 10, yPosition);
@@ -944,38 +923,36 @@
             yPosition += 10;
             doc.text(`Total: R$ ${pedido.total}`, 10, yPosition);
             yPosition += 20;
-        });
+          });
 
-        doc.save('relatorio_do_dia.pdf');
-      }
-
-      function mostrarEndereco() {
-        const taxa = document.getElementById('taxa').value;
-        const enderecoContainer = document.getElementById('enderecoContainer');
-
-        if (taxa === 'delivery') {
-          enderecoContainer.style.display = 'block';
-        } else {
-          enderecoContainer.style.display = 'none';
+          doc.save('relatorio_do_dia.pdf');
         }
-      }
 
-      window.onload = function() {
-        atualizarListaPedidos();
-        calcularTotal();
-        mostrarEndereco();
-      }
-    </script>
-    <script>
+        function mostrarEndereco() {
+          const taxa = document.getElementById('taxa').value;
+          const enderecoContainer = document.getElementById('enderecoContainer');
+
+          if (taxa === 'delivery') {
+            enderecoContainer.style.display = 'block';
+          } else {
+            enderecoContainer.style.display = 'none';
+          }
+        }
+
+        window.onload = function() {
+          atualizarListaPedidos();
+          calcularTotal();
+          mostrarEndereco();
+        }
+      </script>
+      <script>
         window.addEventListener('load', function() {
           const loadingScreen = document.getElementById('loading-screen');
           
-          // Adiciona um atraso antes de remover a tela de carregamento
           setTimeout(() => {
             loadingScreen.classList.add('hidden');
-          }, 2000); // 2000 milissegundos = 2 segundos de atraso
+          }, 2000);
         });
       </script>
   </body>
 </html>
-  
